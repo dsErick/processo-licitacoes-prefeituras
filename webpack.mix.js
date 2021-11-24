@@ -1,3 +1,4 @@
+const path = require('path');
 const mix = require('laravel-mix');
 
 /*
@@ -18,7 +19,7 @@ mix.js('resources/js/app.js', 'public/js')
         require('tailwindcss'),
         require('autoprefixer'),
     ])
-    .webpackConfig(require('./webpack.config'));
+    .alias({ '@': path.resolve('resources/js') });
 
 if (mix.inProduction()) {
     mix.version();
