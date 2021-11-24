@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class City extends Model
+class CityHall extends Model
 {
     use HasFactory,
         SoftDeletes;
@@ -18,12 +18,14 @@ class City extends Model
      */
     protected $fillable = [
         'name',
-        'state',
+        'phone_number',
+        'population',
+        'city_id',
     ];
 
 
-    public function cityHalls(): HasMany
+    public function city(): BelongsTo
     {
-        return $this->hasMany(CityHall::class);
+        return $this->belongsTo(City::class);
     }
 }
