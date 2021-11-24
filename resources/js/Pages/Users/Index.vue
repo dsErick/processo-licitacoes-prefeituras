@@ -1,5 +1,5 @@
 <template>
-  <Head title="About us"/>
+  <inertia-head title="Usuários"/>
 
   <BreezeAuthenticatedLayout>
   <template #header>
