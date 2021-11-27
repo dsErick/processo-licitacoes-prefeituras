@@ -4,11 +4,11 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContactTypesTable extends Migration
+class CreateActivityTypesTable extends Migration
 {
     public function up(): void
     {
-        Schema::create('contact_types', function (Blueprint $table) {
+        Schema::create('activity_types', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
             $table->timestamps();
@@ -17,6 +17,6 @@ class CreateContactTypesTable extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('contact_types');
+        Schema::dropIfExists('activity_types');
     }
 }
