@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, SoftDeletes};
-use Illuminate\Database\Eloquent\Relations\{BelongsTo};
+use Illuminate\Database\Eloquent\Relations\{BelongsTo, HasMany};
 
 class Contact extends Model
 {
@@ -32,5 +32,10 @@ class Contact extends Model
     public function cityHall(): BelongsTo
     {
         return $this->belongsTo(CityHall::class);
+    }
+
+    public function activities(): HasMany
+    {
+        return $this->hasMany(Activity::class);
     }
 }
