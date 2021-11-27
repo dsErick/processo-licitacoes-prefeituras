@@ -21,7 +21,7 @@ class CityHallFactory extends Factory
         ];
     }
 
-    public function municipality(): Factory
+    public function city(): Factory
     {
         return $this->state(fn () => [
             'city_id' => City::factory(),
