@@ -12,6 +12,7 @@ class CreateCitiesTable extends Migration
             $table->id();
             $table->string('name');
             $table->char('state', 2);
+            $table->string('ibge_cod', 8)->nullable()->unique();
 
             $table->timestamps();
             $table->softDeletes();

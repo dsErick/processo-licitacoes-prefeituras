@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             ContactTypeSeeder::class,
             ActivityTypeSeeder::class,
             ReceptivitySeeder::class,
+            CitySeeder::class,
             UserSeeder::class,
         ]);
     }
