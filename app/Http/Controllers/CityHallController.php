@@ -14,6 +14,7 @@ class CityHallController extends Controller
         $cityHalls = CityHall::query()
             ->select('id', 'name', 'phone_number', 'population', 'city_id')
             ->with('city:id,name')
+            ->latest()
             ->paginate();
 
 
@@ -40,18 +41,34 @@ class CityHallController extends Controller
 
     public function show(CityHall $cityHall): InertiaResponse
     {
+        $cityHall->load([
+            'contacts' => fn ($query) => $query
+                ->select('id', 'name', 'mandate_ends_at', 'contact_type_id', 'city_hall_id')
+                ->with('contactType:id,name')
+                ->withCount('activities')
+                ->latest()
+        ]);
+
+        $cities = City::orderBy('name')->get(['id', 'name']);
+
+
         return Inertia::render('CityHalls/Show', [
-            'cityHall' => $cityHall
+            'cityHall' => $cityHall,
+            'cities' => $cities
         ]);
     }
 
     public function update(CityHallRequest $request, CityHall $cityHall): RedirectResponse
     {
-        dd($request, $cityHall);
+        $cityHall->update($request->validated());
+
+        return redirect()->route('city-halls.show', $cityHall)->with('success', 'Prefeitura atualizada.');
     }
 
     public function destroy(CityHall $cityHall): RedirectResponse
     {
-        dd($cityHall);
+        $cityHall->delete();
+
+        return redirect()->route('city-halls.index')->with('success', "<b>$cityHall->name</b> foi removida.");
     }
 }

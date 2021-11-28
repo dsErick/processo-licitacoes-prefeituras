@@ -28,7 +28,7 @@
 
                 <div class="col-span-6">
                     <BreezeLabel for="city_id" value="Cidade" />
-                    <select id="city_id" type="number" v-model="form.city_id" class="input block mt-1 w-full">
+                    <select id="city_id" v-model="form.city_id" class="input block mt-1 w-full">
                         <option></option>
                         <option v-for="city in cities" :key="city.id" :value="city.id">
                             {{ city.name }}
