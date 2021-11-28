@@ -8,6 +8,7 @@
       leave-to-class="opacity-0">
     <div v-show="$page.props.showingMobileMenu" class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"></div>
   </transition>
+
   <transition
       enter-active-class="transition ease-in-out duration-150"
       enter-from-class="opacity-0 transform -translate-x-20"
@@ -35,19 +36,19 @@
           </li>
 
           <li class="relative px-6 py-3">
-            <BreezeNavLink :href="route('users.index')" :active="route().current('users.index')">
-              <template #icon>
+            <BreezeNavLink :href="route('city-halls.index')" :active="route().current('city-halls.*')">
+              <!-- <template #icon>
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                      xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                 </svg>
-              </template>
-              Users
+              </template> -->
+              Prefeituras
             </BreezeNavLink>
           </li>
 
-          <li class="relative px-6 py-3">
+          <!-- <li class="relative px-6 py-3">
             <BreezeNavLink :href="route('about')" :active="route().current('about')">
               <template #icon>
                 <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke-linecap="round"
@@ -58,9 +59,9 @@
               </template>
               About us
             </BreezeNavLink>
-          </li>
+          </li> -->
 
-        <li class="relative px-6 py-3">
+        <!-- <li class="relative px-6 py-3">
           <button @click="showingTwoLevelMenu = !showingTwoLevelMenu"
               class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800"
               aria-haspopup="true">
@@ -83,7 +84,7 @@
                 <a class="w-full" href="#">Child menu</a>
               </li>
             </ul>
-        </li>
+        </li> -->
         </ul>
       </div>
     </aside>

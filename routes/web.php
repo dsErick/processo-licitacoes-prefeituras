@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\{
+    CityHallController,
+    ProfileController, UserController,
+};
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,19 +28,19 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
+
+    Route::inertia('about', 'About')->name('about');
+
+    Route::get('users', [UserController::class, 'index'])->name('users.index');
+
+    Route::get('profile', [ProfileController::class, 'show'])->name('profile.show');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+
+
+    // Prefeituras
+    Route::resource('city-halls', CityHallController::class)->except(['edit']);
+});
 
 require __DIR__.'/auth.php';
-
-Route::middleware('auth')->group(function () {
-    Route::get('about', function () {
-        return Inertia::render('About');
-    })->name('about');
-
-    Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
-
-    Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
-    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-});
