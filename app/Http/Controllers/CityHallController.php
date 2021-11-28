@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CityHallRequest;
 use App\Models\{City, CityHall};
-use Illuminate\Http\Request;
 use Illuminate\Http\{RedirectResponse};
 use Inertia\{Inertia, Response as InertiaResponse};
 
@@ -31,9 +31,11 @@ class CityHallController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(CityHallRequest $request): RedirectResponse
     {
-        dd($request, $request->all());
+        $cityHall = CityHall::create($request->validated());
+
+        return redirect()->route('city-halls.show', $cityHall);
     }
 
     public function show(CityHall $cityHall): InertiaResponse
@@ -43,14 +45,7 @@ class CityHallController extends Controller
         ]);
     }
 
-    public function edit(CityHall $cityHall): InertiaResponse
-    {
-        return Inertia::render('', [
-            'cityHall' => $cityHall
-        ]);
-    }
-
-    public function update(Request $request, CityHall $cityHall): RedirectResponse
+    public function update(CityHallRequest $request, CityHall $cityHall): RedirectResponse
     {
         dd($request, $cityHall);
     }

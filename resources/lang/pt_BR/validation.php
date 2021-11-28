@@ -186,6 +186,8 @@ return [
         'description' => 'descrição',
         'password_confirmation' => 'confirmação da senha',
         'current_password' => 'senha atual',
+
+        'city_id' => 'cidade',
     ],
 
 ];
