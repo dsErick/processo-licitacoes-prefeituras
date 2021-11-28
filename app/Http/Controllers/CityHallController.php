@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\{CityHall};
+use App\Models\{City, CityHall};
 use Illuminate\Http\Request;
 use Illuminate\Http\{RedirectResponse};
 use Inertia\{Inertia, Response as InertiaResponse};
@@ -24,7 +24,11 @@ class CityHallController extends Controller
 
     public function create(): InertiaResponse
     {
-        return Inertia::render('CityHalls/Create');
+        $cities = City::orderBy('name')->get(['id', 'name']);
+
+        return Inertia::render('CityHalls/Create', [
+            'cities' => $cities,
+        ]);
     }
 
     public function store(Request $request): RedirectResponse

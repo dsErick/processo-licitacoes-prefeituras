@@ -6,3 +6,7 @@
 .btn-primary {
     @apply inline-flex items-center px-4 py-2 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg hover:bg-purple-700 focus:outline-none focus:ring;
 }
+
+.input {
+    @apply mt-1 border-gray-300 rounded-md shadow-sm focus:border-purple-300 focus:ring focus:ring-purple-200 focus:ring-opacity-50 focus-within:text-purple-600;
+}
