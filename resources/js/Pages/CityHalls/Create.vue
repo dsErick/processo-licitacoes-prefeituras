@@ -6,7 +6,7 @@
         Cadastrar prefeitura
     </template>
 
-    <div class="p-4 bg-white rounded-lg shadow-xs">
+    <div class="section">
         <form @submit.prevent="submit">
             <div class="grid grid-cols-6 gap-6">
                 <div class="col-span-6">

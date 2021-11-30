@@ -6,8 +6,19 @@
         {{ cityHall.name }}
     </template>
 
-    <div class="p-4 bg-white rounded-lg shadow-xs">
+    <div class="section">
         <UpdateCityHallInformationForm :city-hall="cityHall" :cities="cities" />
+    </div>
+
+    <div class="section mt-12">
+        <div class="text-right mb-6">
+            <!-- <InertiaLink :href="route('city-halls.create')" class="btn-primary"> -->
+            <InertiaLink href="#" class="btn-primary">
+                Criar contato
+            </InertiaLink>
+        </div>
+
+        <CityHallContactsTable :contacts="cityHall.contacts" />
     </div>
 </BreezeAuthenticatedLayout>
 </template>
@@ -15,6 +26,7 @@
 <script setup>
 import BreezeAuthenticatedLayout from '@/Layouts/Authenticated.vue';
 import UpdateCityHallInformationForm from './Show/UpdateCityHallInformationForm.vue'
+import CityHallContactsTable from './Show/CityHallContactsTable.vue'
 
 defineProps({ cityHall: Object, cities: Array })
 </script>

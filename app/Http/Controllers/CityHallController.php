@@ -41,13 +41,14 @@ class CityHallController extends Controller
 
     public function show(CityHall $cityHall): InertiaResponse
     {
-        $cityHall->load([
-            'contacts' => fn ($query) => $query
-                ->select('id', 'name', 'mandate_ends_at', 'contact_type_id', 'city_hall_id')
-                ->with('contactType:id,name')
-                ->withCount('activities')
-                ->latest()
-        ]);
+        $cityHall->setRelation('contacts', $cityHall->contacts()
+            ->select('id', 'name', 'mandate_ends_at', 'contact_type_id', 'city_hall_id')
+            ->with('contactType:id,name')
+            ->withCount('activities')
+            ->latest()
+            ->paginate(10)
+            ->withQueryString()
+        );
 
         $cities = City::orderBy('name')->get(['id', 'name']);
 

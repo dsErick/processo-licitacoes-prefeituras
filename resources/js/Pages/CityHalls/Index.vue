@@ -6,11 +6,11 @@
         Prefeituras
     </template>
 
-    <div class="p-4 bg-white rounded-lg shadow-xs">
+    <div class="section">
         <div class="text-right mb-6">
-            <inertia-link :href="route('city-halls.create')" class="btn-primary">
+            <InertiaLink :href="route('city-halls.create')" class="btn-primary">
                 Criar prefeitura
-            </inertia-link>
+            </InertiaLink>
         </div>
 
         <div v-show="!!$page.props.flash.success" class="inline-flex w-full mb-4 overflow-hidden bg-white rounded-lg shadow-md">
@@ -43,9 +43,9 @@
                     <tbody class="bg-white divide-y">
                         <tr v-for="cityHall in cityHalls.data" :key="cityHall.id" class="text-gray-700">
                             <td class="px-4 py-3 text-sm">
-                                <inertia-link :href="route('city-halls.show', cityHall)" class="text-blue-500 underline">
+                                <InertiaLink :href="route('city-halls.show', cityHall)" class="text-blue-500 underline">
                                     Ver
-                                </inertia-link>
+                                </InertiaLink>
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 {{ cityHall.name }}
