@@ -37,7 +37,7 @@
     </div>
 
     <div class="px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase bg-gray-50 border-t sm:grid-cols-9">
-        <VPagination :links="contacts.links" />
+        <VPagination :links="contacts.links" preserve-scroll />
     </div>
  </div>
 </template>
