@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
 use App\Models\{CityHall, Contact, ContactType};
-use Illuminate\Http\Request;
 use Illuminate\Http\{RedirectResponse};
 use Inertia\{Inertia, Response as InertiaResponse};
 
@@ -25,13 +25,17 @@ class ContactController extends Controller
         ]);
     }
 
-    public function store(Request $request): RedirectResponse
+    public function store(ContactRequest $request): RedirectResponse
     {
-        dd($request, $request->all());
+        $contact = Contact::create($request->validated());
+
+        return redirect()->route('contacts.show', $contact)->with('success', 'Contato criado.');
     }
 
     public function show(Contact $contact): InertiaResponse
     {
+        dd($contact);
+
         return Inertia::render('', [
             'contact' => $contact
         ]);
@@ -44,7 +48,7 @@ class ContactController extends Controller
     //     ]);
     // }
 
-    public function update(Request $request, Contact $contact): RedirectResponse
+    public function update(ContactRequest $request, Contact $contact): RedirectResponse
     {
         dd($request, $contact);
     }

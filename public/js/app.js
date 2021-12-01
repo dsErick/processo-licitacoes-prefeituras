@@ -23086,8 +23086,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         value: "Término do mandato"
       }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeInput"], {
         id: "mandate_ends_at",
-        type: "datetime-local",
-        step: "1",
+        type: "date",
         modelValue: $setup.form.mandate_ends_at,
         "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
           return $setup.form.mandate_ends_at = $event;

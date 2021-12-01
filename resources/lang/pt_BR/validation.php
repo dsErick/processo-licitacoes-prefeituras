@@ -187,7 +187,10 @@ return [
         'password_confirmation' => 'confirmação da senha',
         'current_password' => 'senha atual',
 
-        'city_id' => 'cidade',
+        'city_id'         => 'cidade',
+        'mandate_ends_at' => 'término do mandato',
+        'contact_type_id' => 'tipo de contato',
+        'city_hall_id'    => 'prefeitura',
     ],
 
 ];

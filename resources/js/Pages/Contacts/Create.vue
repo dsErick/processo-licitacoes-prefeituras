@@ -17,7 +17,7 @@
 
                 <div class="col-span-6">
                     <BreezeLabel for="mandate_ends_at" value="Término do mandato" />
-                    <BreezeInput id="mandate_ends_at" type="datetime-local" step="1" v-model="form.mandate_ends_at" class="block mt-1 w-full" />
+                    <BreezeInput id="mandate_ends_at" type="date" v-model="form.mandate_ends_at" class="block mt-1 w-full" />
                     <BreezeInputError :message="form.errors.mandate_ends_at" />
                 </div>
 
