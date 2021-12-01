@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\{
     CityHallController,
+    ContactController,
     ProfileController, UserController,
 };
 use Illuminate\Foundation\Application;
@@ -41,6 +42,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Prefeituras
     Route::resource('city-halls', CityHallController::class)->except(['edit']);
+
+    // Contatos
+    Route::resource('contacts', ContactController::class)->except(['index', 'edit']);
 });
 
 require __DIR__.'/auth.php';

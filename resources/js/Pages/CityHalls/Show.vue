@@ -12,8 +12,7 @@
 
     <div class="section mt-12">
         <div class="text-right mb-6">
-            <!-- <InertiaLink :href="route('city-halls.create')" class="btn-primary"> -->
-            <InertiaLink href="#" class="btn-primary">
+            <InertiaLink :href="route('contacts.create', { city_hall: cityHall.id })" class="btn-primary">
                 Criar contato
             </InertiaLink>
         </div>
